@@ -81,26 +81,26 @@
 
 
 
-<meta name="description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  背景阿里巴巴于10月14号在杭州云栖大会上，正式发布《阿里巴巴Java开发规约》的扫描插件。该插件在扫描代码后，将不符合规约的代码按Blocker/Critical/Major三个等级显示在下方，甚至在IDEA上，该插件还基于Inspection机制提供了实时检测功能，编">
+<meta name="description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  简介非root情况下查看手机数据库和SharedPreferences的方法有两种：  方法一：Stetho 方法二：Android-Debug-Database  方法一： Stethogithub的地址：点击进入 第一步：在gradle.gradle中添加：123de">
 <meta name="keywords" content="Android 工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Alibaba Java Coding Guidelines使用">
-<meta property="og:url" content="http://yoursite.com/2017/10/16/Alibaba-Java-Coding-Guidelines使用/index.html">
+<meta property="og:title" content="非root查看手机数据库和SharedPreferences的方法">
+<meta property="og:url" content="http://yoursite.com/2017/10/16/非root查看手机数据库和SharedPreferences的方法/index.html">
 <meta property="og:site_name" content="Kevin的博客">
-<meta property="og:description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  背景阿里巴巴于10月14号在杭州云栖大会上，正式发布《阿里巴巴Java开发规约》的扫描插件。该插件在扫描代码后，将不符合规约的代码按Blocker/Critical/Major三个等级显示在下方，甚至在IDEA上，该插件还基于Inspection机制提供了实时检测功能，编">
+<meta property="og:description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  简介非root情况下查看手机数据库和SharedPreferences的方法有两种：  方法一：Stetho 方法二：Android-Debug-Database  方法一： Stethogithub的地址：点击进入 第一步：在gradle.gradle中添加：123de">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/76708430.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/61006767.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/93079600.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/76708430.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/77870270.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/81803486.jpg">
-<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/89267425.jpg">
-<meta property="og:updated_time" content="2017-10-17T01:41:24.864Z">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/19602195.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/75435356.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/38035199.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/74825211.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/34739799.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/95930701.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/89878922.jpg">
+<meta property="og:updated_time" content="2017-10-17T07:33:28.052Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alibaba Java Coding Guidelines使用">
-<meta name="twitter:description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  背景阿里巴巴于10月14号在杭州云栖大会上，正式发布《阿里巴巴Java开发规约》的扫描插件。该插件在扫描代码后，将不符合规约的代码按Blocker/Critical/Major三个等级显示在下方，甚至在IDEA上，该插件还基于Inspection机制提供了实时检测功能，编">
-<meta name="twitter:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/76708430.jpg">
+<meta name="twitter:title" content="非root查看手机数据库和SharedPreferences的方法">
+<meta name="twitter:description" content="前言 版权归作者所有，如有转发，请注明文章出处：https://xiaoduoduo.github.io/archives/  简介非root情况下查看手机数据库和SharedPreferences的方法有两种：  方法一：Stetho 方法二：Android-Debug-Database  方法一： Stethogithub的地址：点击进入 第一步：在gradle.gradle中添加：123de">
+<meta name="twitter:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/19602195.jpg">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/16/Alibaba-Java-Coding-Guidelines使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/16/非root查看手机数据库和SharedPreferences的方法/"/>
 
 
 
 
 
-  <title>Alibaba Java Coding Guidelines使用 | Kevin的博客</title>
+  <title>非root查看手机数据库和SharedPreferences的方法 | Kevin的博客</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/Alibaba-Java-Coding-Guidelines使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/16/非root查看手机数据库和SharedPreferences的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liduo">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Alibaba Java Coding Guidelines使用</h1>
+          <h1 class="post-title" itemprop="name headline">非root查看手机数据库和SharedPreferences的方法</h1>
         
 
         <div class="post-meta">
@@ -302,7 +302,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T17:55:34+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T18:26:01+08:00">
                 2017-10-16
               </time>
             
@@ -365,23 +365,34 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>版权归作者所有，如有转发，请注明文章出处：<a href="https://xiaoduoduo.github.io/archives/" target="_blank" rel="external">https://xiaoduoduo.github.io/archives/</a></p>
 </blockquote>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>阿里巴巴于10月14号在杭州云栖大会上，正式发布《阿里巴巴Java开发规约》的扫描插件。该插件在扫描代码后，将不符合规约的代码按<strong>Blocker/Critical/Major</strong>三个等级显示在下方，甚至在IDEA上，该插件还基于Inspection机制提供了实时检测功能，编写代码的同时也能快速发现问题所在。对于历史代码，部分规则实现了批量一键修复的功能。</p>
-<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><p><strong><a href="https://github.com/alibaba/p3c" title="https://github.com/alibaba/p3c" target="_blank" rel="external">https://github.com/alibaba/p3c</a></strong></p>
-<p>效果图如下：<br><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/76708430.jpg" alt=""></p>
-<h2 id="插件的安装方式"><a href="#插件的安装方式" class="headerlink" title="插件的安装方式"></a>插件的安装方式</h2><p>最低版本 JDK1.7+</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>非root情况下查看手机数据库和SharedPreferences的方法有两种：</p>
 <blockquote>
-<p>打开AndroidStudio Setting–&gt; Plugins–&gt; Browse repositories</p>
-<p>输入Alibaba 可以看到插件 点击安装</p>
-<p>重启as</p>
+<p>方法一：Stetho</p>
+<p>方法二：Android-Debug-Database</p>
 </blockquote>
-<p>这里我已经做了安装</p>
-<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/61006767.jpg" alt=""></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="鼠标右键即可："><a href="#鼠标右键即可：" class="headerlink" title="鼠标右键即可："></a>鼠标右键即可：</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/93079600.jpg" alt=""></p>
-<h3 id="运行可以看到编辑器底部提示信息："><a href="#运行可以看到编辑器底部提示信息：" class="headerlink" title="运行可以看到编辑器底部提示信息："></a>运行可以看到编辑器底部提示信息：</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-16/76708430.jpg" alt=""></p>
-<h3 id="代码提示："><a href="#代码提示：" class="headerlink" title="代码提示："></a>代码提示：</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/77870270.jpg" alt=""></p>
-<h3 id="完整提示"><a href="#完整提示" class="headerlink" title="完整提示"></a>完整提示</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/81803486.jpg" alt=""></p>
-<h3 id="部分不规范的代码，支持一键修复"><a href="#部分不规范的代码，支持一键修复" class="headerlink" title="部分不规范的代码，支持一键修复"></a>部分不规范的代码，支持一键修复</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/89267425.jpg" alt=""></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>代码规范可以提高我们的编码、排错效率，开发团队都应该遵守。</p>
+<h2 id="方法一：-Stetho"><a href="#方法一：-Stetho" class="headerlink" title="方法一： Stetho"></a>方法一： Stetho</h2><p>github的地址：<a href="http://facebook.github.io/stetho/" title="Stetho" target="_blank" rel="external">点击进入</a></p>
+<h3 id="第一步：在gradle-gradle中添加："><a href="#第一步：在gradle-gradle中添加：" class="headerlink" title="第一步：在gradle.gradle中添加："></a>第一步：在gradle.gradle中添加：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123; </div><div class="line">  compile &apos;com.facebook.stetho:stetho:1.5.0&apos; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="第二步：Application初始化："><a href="#第二步：Application初始化：" class="headerlink" title="第二步：Application初始化："></a>第二步：Application初始化：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">public class MyApplication extends Application &#123;</div><div class="line">  public void onCreate() &#123;</div><div class="line">    super.onCreate();</div><div class="line">    Stetho.initializeWithDefaults(this);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="第三步：运行程序："><a href="#第三步：运行程序：" class="headerlink" title="第三步：运行程序："></a>第三步：运行程序：</h3><p>手机可以通过usb链接电脑，并且是在开发者模式的模式；</p>
+<p>浏览器输入这个地址：<br><a href="chrome://inspect/#devices" title="chrome://inspect/#devices" target="_blank" rel="external">chrome://inspect/#devices</a></p>
+<p>点击 inspect</p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/19602195.jpg" alt=""></p>
+<p>进入调试界面：</p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/75435356.jpg" alt=""></p>
+<h2 id="方法二：-Android-Debug-Database"><a href="#方法二：-Android-Debug-Database" class="headerlink" title="方法二： Android-Debug-Database"></a>方法二： Android-Debug-Database</h2><p>github的地址：<a href="https://github.com/amitshekhariitbhu/Android-Debug-Database" title="Android-Debug-Database" target="_blank" rel="external">点击进入</a></p>
+<h3 id="第一步：在gradle-gradle中添加：-1"><a href="#第一步：在gradle-gradle中添加：-1" class="headerlink" title="第一步：在gradle.gradle中添加："></a>第一步：在gradle.gradle中添加：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">debugCompile &apos;com.amitshekhar.android:debug-db:1.0.1&apos;</div></pre></td></tr></table></figure>
+<p>debugCompile只会在debug模式下编译使用。</p>
+<h3 id="第二步：打开你的Application-添加如下代码："><a href="#第二步：打开你的Application-添加如下代码：" class="headerlink" title="第二步：打开你的Application 添加如下代码："></a>第二步：打开你的Application 添加如下代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public static void showDebugDBAddressLogToast() &#123;</div><div class="line">        if (ConfigureSet.IsDebug) &#123;</div><div class="line">            try &#123;</div><div class="line">                Class&lt;?&gt; debugDB = Class.forName(&quot;com.amitshekhar.DebugDB&quot;);</div><div class="line">                Method getAddressLog = debugDB.getMethod(&quot;getAddressLog&quot;);</div><div class="line">                Object value = getAddressLog.invoke(null);</div><div class="line">                LogUtils.i(&quot;DebugDB:     &quot; + value);</div><div class="line">            &#125; catch (Exception ignore) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="第三步：运行app控制台查看log输出："><a href="#第三步：运行app控制台查看log输出：" class="headerlink" title="第三步：运行app控制台查看log输出："></a>第三步：运行app控制台查看log输出：</h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/38035199.jpg" alt=""></p>
+<p>ps：</p>
+<p><strong>1. 保证你的手机和pc在一个局域网</strong>。</p>
+<p><strong>2. 如果你要修改8080端口,只需要在build.gradle中的buildTypes下面你的debug中进行配置：</strong><br><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/74825211.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  buildTypes &#123;</div><div class="line">      debug &#123;</div><div class="line">            resValue(&quot;string&quot;, &quot;PORT_NUMBER&quot;, &quot;8081&quot;)</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这时候控制台log：<br><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/34739799.jpg" alt=""></p>
+<h3 id="第四步：浏览器打开网址：http-192-168-0-118-8081"><a href="#第四步：浏览器打开网址：http-192-168-0-118-8081" class="headerlink" title="第四步：浏览器打开网址：http://192.168.0.118:8081"></a>第四步：浏览器打开网址：<a href="http://192.168.0.118:8081" target="_blank" rel="external">http://192.168.0.118:8081</a></h3><p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/95930701.jpg" alt=""></p>
+<p>可以修改、添加和删除数据库中的数据：</p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-17/89878922.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>第一种方法，功能十分强大，但是需要使用usb链接设备和电脑，而且有时候打开速度比较慢。<br>本人比较喜欢第二种方式：简单、方便。</p>
 
       
     </div>
@@ -412,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/13/Android-App自动化测试 OPEN-STF环境搭建/" rel="next" title="Android App自动化测试: OPEN-STF环境搭建">
-                <i class="fa fa-chevron-left"></i> Android App自动化测试: OPEN-STF环境搭建
+              <a href="/2017/10/16/Alibaba-Java-Coding-Guidelines使用/" rel="next" title="Alibaba Java Coding Guidelines使用">
+                <i class="fa fa-chevron-left"></i> Alibaba Java Coding Guidelines使用
               </a>
             
           </div>
@@ -421,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/16/非root查看手机数据库和SharedPreferences的方法/" rel="prev" title="非root查看手机数据库和SharedPreferences的方法">
-                非root查看手机数据库和SharedPreferences的方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址"><span class="nav-number">1.2.</span> <span class="nav-text">github地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件的安装方式"><span class="nav-number">2.</span> <span class="nav-text">插件的安装方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#鼠标右键即可："><span class="nav-number">3.1.</span> <span class="nav-text">鼠标右键即可：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行可以看到编辑器底部提示信息："><span class="nav-number">3.2.</span> <span class="nav-text">运行可以看到编辑器底部提示信息：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码提示："><span class="nav-number">3.3.</span> <span class="nav-text">代码提示：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整提示"><span class="nav-number">3.4.</span> <span class="nav-text">完整提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分不规范的代码，支持一键修复"><span class="nav-number">3.5.</span> <span class="nav-text">部分不规范的代码，支持一键修复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：-Stetho"><span class="nav-number">2.</span> <span class="nav-text">方法一： Stetho</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：在gradle-gradle中添加："><span class="nav-number">2.1.</span> <span class="nav-text">第一步：在gradle.gradle中添加：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：Application初始化："><span class="nav-number">2.2.</span> <span class="nav-text">第二步：Application初始化：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：运行程序："><span class="nav-number">2.3.</span> <span class="nav-text">第三步：运行程序：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：-Android-Debug-Database"><span class="nav-number">3.</span> <span class="nav-text">方法二： Android-Debug-Database</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：在gradle-gradle中添加：-1"><span class="nav-number">3.1.</span> <span class="nav-text">第一步：在gradle.gradle中添加：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：打开你的Application-添加如下代码："><span class="nav-number">3.2.</span> <span class="nav-text">第二步：打开你的Application 添加如下代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：运行app控制台查看log输出："><span class="nav-number">3.3.</span> <span class="nav-text">第三步：运行app控制台查看log输出：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：浏览器打开网址：http-192-168-0-118-8081"><span class="nav-number">3.4.</span> <span class="nav-text">第四步：浏览器打开网址：http://192.168.0.118:8081</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
