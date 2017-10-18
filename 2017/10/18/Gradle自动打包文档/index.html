@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android 工具," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kevin的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="背景为了保证App上线前测试环境正式环境切换不需要改变代码，提高效率，使用Gradle脚本配置正式包和测试包。 Gradle配置与打包 build.gradle 文件的配置1234567891011121314151617181920212223242526272829303132333435363738buildTypes &amp;#123;       		 /** 正式环境*/">
+<meta name="keywords" content="Android 工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle自动打包文档">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/Gradle自动打包文档/index.html">
+<meta property="og:site_name" content="Kevin的博客">
+<meta property="og:description" content="背景为了保证App上线前测试环境正式环境切换不需要改变代码，提高效率，使用Gradle脚本配置正式包和测试包。 Gradle配置与打包 build.gradle 文件的配置1234567891011121314151617181920212223242526272829303132333435363738buildTypes &amp;#123;       		 /** 正式环境*/">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/89418148.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/61285586.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/83948761.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/47204649.jpg">
+<meta property="og:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/39697564.jpg">
+<meta property="og:updated_time" content="2017-10-18T05:58:10.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gradle自动打包文档">
+<meta name="twitter:description" content="背景为了保证App上线前测试环境正式环境切换不需要改变代码，提高效率，使用Gradle脚本配置正式包和测试包。 Gradle配置与打包 build.gradle 文件的配置1234567891011121314151617181920212223242526272829303132333435363738buildTypes &amp;#123;       		 /** 正式环境*/">
+<meta name="twitter:image" content="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/89418148.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/18/Gradle自动打包文档/"/>
+
+
+
+
+
+  <title>Gradle自动打包文档 | Kevin的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kevin的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/Gradle自动打包文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liduo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kevin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gradle自动打包文档</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T13:36:59+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>为了保证App上线前测试环境正式环境切换不需要改变代码，提高效率，使用Gradle脚本配置正式包和测试包。</p>
+<h3 id="Gradle配置与打包-build-gradle-文件的配置"><a href="#Gradle配置与打包-build-gradle-文件的配置" class="headerlink" title="Gradle配置与打包 build.gradle 文件的配置"></a>Gradle配置与打包 build.gradle 文件的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">       		 /** 正式环境*/</div><div class="line">       	 	release &#123;</div><div class="line">            		/** 定义开关*/</div><div class="line">            		buildConfigField(&quot;boolean&quot;, &quot;IsDebug&quot;, &quot;false&quot;)</div><div class="line">            		/** 定义正式环境  腾讯云bucket*/</div><div class="line">            		buildConfigField(&quot;String&quot;, &quot;TENCENT_UPLOAD_BUCKET&quot;, &quot;\&quot;topworld\&quot;&quot;)</div><div class="line">            		/** 定义正式环境 HOST*/</div><div class="line">           			 buildConfigField(&quot;String&quot;, &quot;HOST&quot;, &quot;\&quot;www.lovbook.net\&quot;&quot;)</div><div class="line">            		/** 打开 代码混淆*/</div><div class="line">           		 	minifyEnabled true</div><div class="line">            		/** 打开 应用程序进行优化*/</div><div class="line">           		 	zipAlignEnabled true</div><div class="line">            		/** 打开 移除无用资源*/</div><div class="line">            		shrinkResources true</div><div class="line">            		/** 加载 签名文件*/</div><div class="line">           		 	signingConfig signingConfigs.release</div><div class="line">            		/** 加载 混淆文件*/</div><div class="line">            	proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">            		/** 输出 混淆apk release_vxx_codexx_yyyyMMddHH.apk*/</div><div class="line">			&#125;</div><div class="line">       	 	/** 测试环境*/</div><div class="line">       		 debug &#123;</div><div class="line">           			 /** 定义开关*/</div><div class="line">           			 buildConfigField(&quot;boolean&quot;, &quot;IsDebug&quot;, &quot;true&quot;)</div><div class="line">           			 /** 定义测试环境 腾讯云bucket*/</div><div class="line">            		buildConfigField(&quot;String&quot;, &quot;TENCENT_UPLOAD_BUCKET&quot;, &quot;\&quot;lovebook\&quot;&quot;)</div><div class="line">           		 	/** 定义测试环境 HOST*/</div><div class="line">            		buildConfigField(&quot;String&quot;, &quot;HOST&quot;, &quot;\&quot;api.lovbook.net\&quot;&quot;)</div><div class="line">            		/** 关闭 代码混淆*/</div><div class="line">            		minifyEnabled false</div><div class="line">            		/** 关闭 优化*/</div><div class="line">            		zipAlignEnabled false</div><div class="line">            		/** 关闭 移除无用资源*/</div><div class="line">            		shrinkResources false</div><div class="line">            		/** 加载 签名文件*/</div><div class="line">           		     	 signingConfig signingConfigs.debug</div><div class="line">            		/** 输出 apk debug_vxx_codexx_yyyyMMddHH.apk*/</div></pre></td></tr></table></figure>
+<p>其中release版本的log默认关闭，如果需要在该环境下看log，修改lovebook module的gradle配置文件。将IsDebug变量修改为true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">release &#123;</div><div class="line">           	/** 定义开关*/</div><div class="line">           	buildConfigField(&quot;boolean&quot;, &quot;IsDebug&quot;, &quot;true&quot;)</div><div class="line">     		&#125;</div></pre></td></tr></table></figure>
+<p>在release版本中开启“shrinkResources true”，移除无用资源，会导致某些书籍的详情页面图片显示为黑框。是因为移除了不应该被移除的资源导致。所以release版本中该开关暂时关闭设置为false。后期继续优化这个问题。</p>
+<h3 id="代码中的配置："><a href="#代码中的配置：" class="headerlink" title="代码中的配置："></a>代码中的配置：</h3><p>在BuildConfig类中会生成如下代码：<br><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/89418148.jpg" alt=""></p>
+<h3 id="gradle签名文件的获取"><a href="#gradle签名文件的获取" class="headerlink" title="gradle签名文件的获取"></a>gradle签名文件的获取</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">      		 release &#123;</div><div class="line">           		try &#123;</div><div class="line">               		storeFile file(RELEASE_STOREFILE)</div><div class="line">               		keyAlias RELEASE_KEY_ALIAS</div><div class="line">               		keyPassword RELEASE_KEY_PASSWORD</div><div class="line">               		storePassword RELEASE_STOREPASSWORD</div><div class="line">           		&#125; catch (ex) &#123;</div><div class="line">              	 throw new InvalidUserDataException(&quot;You should define KEYSTORE_PASSWORD and KEY_PASSWORD in gradle.properties.&quot;);</div><div class="line">           		&#125;</div><div class="line">      	 	&#125;</div><div class="line">       		debug &#123;</div><div class="line">      		 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="keystore签名文件的保存"><a href="#keystore签名文件的保存" class="headerlink" title="keystore签名文件的保存"></a>keystore签名文件的保存</h3><p>签名文件keystore密码的常量配置在gradle.properties文件中（原则上这个文件不上传SVN）：<strong>其中RELEASE_STOREFILE 对应你自己签名文件的路径。</strong></p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/61285586.jpg" alt=""> <img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/83948761.jpg" alt=""></p>
+<h3 id="编译app"><a href="#编译app" class="headerlink" title="编译app"></a>编译app</h3><p>生成apk配置完毕之后，重新编译之后，这时候AndroidStudio工具栏的左下方的Build Variants窗口里面的lovebook Module可以选择编译方式：release 和debug<br><strong>（打包之前clean一下项目）</strong></p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/47204649.jpg" alt=""></p>
+<p>选择完毕，连接手机，运行编译器。会安装对应的relase或者debug包。同时在你的项目目录D:\as_pj\androidProject\lovebook\build\outputs\apk 也会生成对应的apk文件。</p>
+<p><img src="http://oxr1t0q0c.bkt.clouddn.com/17-10-18/39697564.jpg" alt=""></p>
+<h3 id="使用命令行打包"><a href="#使用命令行打包" class="headerlink" title="使用命令行打包"></a>使用命令行打包</h3><p>可以使用androidstudio工具下的 命令行使用gradlew命令进行打包，然后根据需要执行（1）/(2) /(3)，生成的文件在 app–&gt;build–&gt;outputs–&gt;apk下<br>（如果配置了gradle的环境变量 也可以使用gradle命令进行操作）。</p>
+<blockquote>
+<p>(1). gradlew  build         &lt;注:这个是打所有的包&gt;</p>
+<p>(2). gradlew assembleDebug    &lt;注:这个是打Debug包&gt;</p>
+<p>(3). gradlew  assembleRelease  &lt;注:这个是打Release包&gt;</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>后期会根据情况添加多渠道打包.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-工具/" rel="tag"># Android 工具</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/非root查看手机数据库和SharedPreferences的方法/" rel="next" title="非root查看手机数据库和SharedPreferences的方法">
+                <i class="fa fa-chevron-left"></i> 非root查看手机数据库和SharedPreferences的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/18/Android-APK的压缩工具/" rel="prev" title="Android-APK的压缩工具:img-optimizer-gradle-plugin">
+                Android-APK的压缩工具:img-optimizer-gradle-plugin <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="liduo" />
+            
+              <p class="site-author-name" itemprop="name">liduo</p>
+              <p class="site-description motion-element" itemprop="description">Life is now !</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradle配置与打包-build-gradle-文件的配置"><span class="nav-number">2.</span> <span class="nav-text">Gradle配置与打包 build.gradle 文件的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码中的配置："><span class="nav-number">3.</span> <span class="nav-text">代码中的配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradle签名文件的获取"><span class="nav-number">4.</span> <span class="nav-text">gradle签名文件的获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keystore签名文件的保存"><span class="nav-number">5.</span> <span class="nav-text">keystore签名文件的保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译app"><span class="nav-number">6.</span> <span class="nav-text">编译app</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用命令行打包"><span class="nav-number">7.</span> <span class="nav-text">使用命令行打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liduo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
